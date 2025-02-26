@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOGO</title> 
+    <link rel="stylesheet" href="index.css">
+    
+</head>
+
+<body>
+    <div class="wrapper">
+        <h3 class="bogo" style="color:  rgb(255, 94, 94);">YAY! It's BOGO</h3>
+
+
+        <div class="box" onclick="info('one-units', this)">
+            <input type="radio" name="unit" value="10" onchange="price(this)">
+            <strong>1 Unit</strong> <span class="offer"> 50% Off </span> <b class="price">$20.00 USD
+                <br>
+                <strike id="delete">$20.00 USD</strike></b>
+            <div class="details" id="one-units">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Size</th>
+                        <th>Color</th>
+                    </tr>
+                    <tr>
+                        <td>#1</td>
+                        <td><select name="" id="">
+                                <option value="">S</option>
+                                <option value="">M</option>
+                                <option value="">L</option>
+                            </select>
+                        </td>
+                        <td><select name="" id="">
+                                <option value="">Black</option>
+                                <option value="">White</option>
+                                <option value="">Red</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#2</td>
+                        <td><select name="" id="">
+                                <option value="">S</option>
+                                <option value="">M</option>
+                                <option value="">L</option>
+                            </select>
+                        </td>
+                        <td><select name="" id="">
+                                <option value="">Black</option>
+                                <option value="">White</option>
+                                <option value="">Red</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="box" onclick="info('two-units', this)">
+            <div class="most-popular-badge" style="color: rgb(253, 253, 253);">MOST POPULAR</div>
+            <input type="radio" name="unit" value="18" onchange="price(this)">
+            <strong>2 Unit</strong> <span class="offer"> 60% Off </span>
+            <b class="price">$18.00 USD
+                <br>
+                <strike id="delete">$30.00 USD</strike>
+            </b>
+            <div class="details" id="two-units">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Size</th>
+                        <th>Color</th>
+                    </tr>
+                    <tr>
+                        <td>#1</td>
+                        <td><select>
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+                            </select>
+                        </td>
+                        <td><select>
+                                <option>Black</option>
+                                <option>White</option>
+                                <option>Red</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#2</td>
+                        <td><select>
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+                            </select>
+                        </td>
+                        <td><select>
+                                <option>Black</option>
+                                <option>White</option>
+                                <option>Red</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+
+        <div class="box" onclick="info('three-units', this)">
+            <input type="radio" name="unit" value="24" onchange="price(this)">
+            <strong>3 Unit</strong> <span class="offer"> 40% Off </span> <b class="price">$24.00 USD<br>
+                <strike id="delete">$40.00 USD</strike></b>
+            <div class="details" id="three-units">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Size</th>
+                        <th>Color</th>
+                    </tr>
+                    <tr>
+                        <td>#1</td>
+                        <td><select>
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+                            </select>
+                        </td>
+                        <td><select>
+                                <option>Black</option>
+                                <option>White</option>
+                                <option>Red</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#2</td>
+                        <td><select>
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+                            </select>
+                        </td>
+                        <td><select>
+                                <option>Black</option>
+                                <option>White</option>
+                                <option>Red</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <p>
+            <b id="free">Free Delivery</b><strong>Total: $<span id="total">0</span> USD</strong>
+        </p>
+        <button class="button">+ Add to Cart</button>
+        <p id="power">@Powered by Pumper</p>
+    </div>
+
+    <script>
+        function info(id, element) {
+            document.querySelectorAll('.details').forEach(detail => detail.style.display = 'none');
+            document.querySelectorAll('.box').forEach(box => box.classList.remove('active'));
+
+            document.getElementById(id).style.display = 'block';
+            element.classList.add('active');
+
+            let radio = element.querySelector('input[type="radio"]');
+            radio.checked = true;
+            price(radio);
+        }
+
+        function price(radio) {
+            document.getElementById('total').innerText = radio.value;
+        }
+    </script>
+</body>
+
+</html>
